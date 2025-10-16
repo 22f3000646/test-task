@@ -1,39 +1,51 @@
-# Test Brief App
+# Markdown Notes Pro
 
 ## Overview
-Test Brief App is a compact, self‑contained web app showcasing a polished UI and common front‑end patterns:
-- To‑Do list with add, reorder, filter (All/Active/Done), clear completed, and localStorage persistence.
-- Text Tools with transformations (upper, lower, title case, reverse, trim/clean), live metrics (characters, words, lines, read time), and clipboard copy.
-- Accessible tab navigation and keyboard support.
-- Light/Dark theme with persistence and a quick stats summary.
-
-Everything runs in a single HTML file with inline CSS/JS and no external dependencies.
+Markdown Notes Pro is a fast, offline-ready, single-page web app for managing Markdown notes. It supports multiple notes, live preview, tags, powerful search (including tag filtering), drag-and-drop reordering, autosave, keyboard shortcuts, and import/export. Everything is stored locally in your browser — no accounts or servers required.
 
 ## Setup
-- No build tools required.
-- Download the repository contents or save the provided index.html locally.
+- No build required.
+- Open index.html in any modern browser.
 
-Open index.html in any modern browser (Chrome, Edge, Firefox, Safari).
+Optional:
+- Serve via a simple static server if you prefer:
+  - Python: python3 -m http.server 8000
+  - Node: npx http-server -p 8000
+
+Then visit http://localhost:8000
 
 ## Usage
-- Theme:
-  - Click the Theme button to toggle Light/Dark. Preference is saved.
-- Tabs:
-  - Use the tab buttons or Arrow Left/Right keys to switch between sections.
-- To‑Do:
-  - Enter a task and press Add or hit Enter.
-  - Toggle completion by clicking the square on each item.
-  - Reorder with ↑ and ↓ buttons.
-  - Filter tasks (All/Active/Done) using the filter buttons.
-  - Clear Done removes all completed tasks at once.
-  - Tasks persist in your browser’s localStorage.
-- Text Tools:
-  - Type or paste text in the textarea.
-  - Use the buttons to transform: UPPERCASE, lowercase, Title Case, Reverse, Trim & Clean.
-  - Copy copies the current text to the clipboard.
-  - Metrics update live: characters, words, lines, and estimated read time.
-  - The text is also saved locally and restored on reload.
-- About:
-  - Quick summary of features.
+- Create a note: Click “＋ New” or press Ctrl/Cmd+N.
+- Edit:
+  - Title at the top.
+  - Tags: Type a tag and press Enter or comma. Click a tag chip to remove it.
+  - Content: Write Markdown in the editor. Live preview appears on the right.
+- Save: Autosaves as you type. Press Ctrl/Cmd+S to force a save timestamp.
+- Search: Use the top search box to find text in titles, content, or tags. Filter by tag with #tag (e.g., #work).
+- Reorder: Drag notes in the sidebar to reorder them.
+- Toggle preview: Click “👁 Preview” or press Ctrl/Cmd+P.
+- Delete: Use the 🗑 Delete button.
+- Export: Click “⤓ Export” to download a JSON backup.
+- Import: Click “⤒ Import” and choose an exported JSON file.
+- Theme: Toggle light/dark with the “🌓 Theme” button. The choice is remembered.
+- Shortcuts:
+  - Ctrl/Cmd+N: New note
+  - Ctrl/Cmd+S: Save
+  - Ctrl/Cmd+F: Focus search
+  - Ctrl/Cmd+P: Toggle preview
 
-Data stays in your browser; no network requests or tracking.
+Notes are stored locally in your browser’s localStorage. You can safely use the app offline.
+
+## Improvements in Round 2
+This version introduces significant upgrades over the previous release:
+- Tags with chips and #tag search filtering.
+- Powerful search across titles, content, and tags with highlighting.
+- Drag-and-drop reordering of notes in the sidebar.
+- Live Markdown preview with support for headings, lists, links, inline and fenced code blocks, bold/italic, and horizontal rules.
+- Autosave with debounced updates and a visible “Last saved” timestamp.
+- Import/Export to JSON (supports both new and legacy formats).
+- Light/Dark theme toggle with persistence.
+- Responsive layout with a collapsible sidebar on mobile.
+- Keyboard shortcuts: New, Save, Find, Toggle Preview.
+- UX polish: word/char counts, improved empty state, contextual hints.
+- Safer rendering: basic HTML escaping and protocol checks inside links.
